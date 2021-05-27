@@ -65,6 +65,10 @@ def lowest_degree(G):
     return nodes_with_min_value
 
 
+def average_degree(N, L):
+    return (2 * L) / N
+
+
 if __name__ == '__main__':
     graph = main()
     edges = number_of_edges(graph)
@@ -73,6 +77,14 @@ if __name__ == '__main__':
     density = network_density(nodes, edges)
     max_degree = highest_degree(graph)
     min_degree = lowest_degree(graph)
+    mean_degree = average_degree(nodes, edges)
     print(f"The number of edges in our graph is {edges}, and the number of nodes in our graph is {nodes}. \n"
           f"The max amount of edges possible in a undirected graph with {nodes} nodes is {max_edges_possible} \n"
-          f"The density of our network is {density}.")
+          f"The density of our network is {density}. \n"
+          f"The average density of our network is {mean_degree} \n"
+          f"The nodes with the minimum degree are:")
+    for nodes in min_degree:
+        print(f"\t-{nodes} (degree of {graph.degree(nodes)})")
+    print(f"The nodes with the maximum grades are: ")
+    for nodes in max_degree:
+        print(f"\t-{nodes} (degree of {graph.degree(nodes)})")
