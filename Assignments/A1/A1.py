@@ -6,6 +6,9 @@ SG = nx.read_adjlist('../Datasets/vitevitch.adjlist')
 nx.draw(SG,
         with_labels=True,
         node_color='black',
+        node_size=16,
+        font_size=10,
+        verticalalignment='bottom',
         edge_color='grey'
         )
 
