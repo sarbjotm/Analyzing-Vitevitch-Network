@@ -3,9 +3,30 @@ import matplotlib.pyplot as plt  # Since we are not using a notebook we will imp
 
 
 def main():
-    SG = nx.read_adjlist('../Datasets/vitevitch.adjlist')
+    graph = nx.read_adjlist('../Datasets/vitevitch.adjlist')
 
-    nx.draw(SG,
+    edges = number_of_edges(graph)
+    nodes = number_of_nodes(graph)
+    max_edges_possible = number_of_possible_edges(nodes)
+    density = network_density(nodes, edges)
+    max_degree = highest_degree(graph)
+    min_degree = lowest_degree(graph)
+    mean_degree = average_degree(nodes, edges)
+    print(f"The number of edges in our graph is {edges}, and the number of nodes in our graph is {nodes}. \n"
+          f"The max amount of edges possible in a undirected graph with {nodes} nodes is {max_edges_possible} \n"
+          f"The density of our network is {density}. \n"
+          f"The average density of our network is {mean_degree} \n"
+          f"The nodes with the minimum degree are:")
+    for nodes in min_degree:
+        print(f"\t-{nodes} (degree of {graph.degree(nodes)})")
+    print(f"The nodes with the maximum grades are: ")
+    for nodes in max_degree:
+        print(f"\t-{nodes} (degree of {graph.degree(nodes)})")
+
+    # higher degree more confusable it is. In a picture training, people respond slower to words with high degree
+    # when we ask people if a specific word is in their language, they go through the network, but there are many other
+    # competitiors to cat that we have to rule out
+    nx.draw(graph,
             with_labels=True,
             node_color='black',
             node_size=16,
@@ -15,7 +36,6 @@ def main():
             )
 
     plt.show()
-    return SG
 
 
 def number_of_edges(G):
@@ -70,21 +90,4 @@ def average_degree(N, L):
 
 
 if __name__ == '__main__':
-    graph = main()
-    edges = number_of_edges(graph)
-    nodes = number_of_nodes(graph)
-    max_edges_possible = number_of_possible_edges(nodes)
-    density = network_density(nodes, edges)
-    max_degree = highest_degree(graph)
-    min_degree = lowest_degree(graph)
-    mean_degree = average_degree(nodes, edges)
-    print(f"The number of edges in our graph is {edges}, and the number of nodes in our graph is {nodes}. \n"
-          f"The max amount of edges possible in a undirected graph with {nodes} nodes is {max_edges_possible} \n"
-          f"The density of our network is {density}. \n"
-          f"The average density of our network is {mean_degree} \n"
-          f"The nodes with the minimum degree are:")
-    for nodes in min_degree:
-        print(f"\t-{nodes} (degree of {graph.degree(nodes)})")
-    print(f"The nodes with the maximum grades are: ")
-    for nodes in max_degree:
-        print(f"\t-{nodes} (degree of {graph.degree(nodes)})")
+    main()
