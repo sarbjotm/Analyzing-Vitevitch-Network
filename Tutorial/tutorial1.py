@@ -2,28 +2,23 @@ import networkx as nx
 import matplotlib.pyplot as plt  # Since we are not using a notebook we will import like this
 
 
-# Exercise 1 Often in the context of trees, a node with degree 1 is called a leaf. Write a function named get_leaves
-# that takes a graph as an argument, loops through the nodes, and returns a list of nodes with degree 1.
+G = nx.Graph()
 
-def get_leaves(G):
-    return_list = []
-    for node in G.nodes:
-        if G.degree(node) == 1:
-            return_list.append(node)
-    print(return_list)
+# give each a node a 'name', which is a letter in this case.
+G.add_node('a')
 
+# the add_nodes_from method allows adding nodes from a sequence, in this case a list
+nodes_to_add = ['1','2','3','4','5','6']
+G.add_nodes_from(nodes_to_add)
 
-def main():
-    G = nx.Graph()
-    G.add_edges_from([
-        ('a', 'b'),
-        ('a', 'd'),
-        ('c', 'd'),
-    ])
-    nx.draw(G, with_labels=True)
-    # plt.show # To show graph/diagram of nodes
-    get_leaves(G)
+D = nx.DiGraph()
+
+D.add_edges_from([(1,2),(2,3),(3,2),(3,4),(3,5),(4,5),(4,6),(5,6),(6,4),(4,2)])
+print(D.has_edge(5,4))
+
+nx.draw(D, with_labels=True,
+        node_color='yellow')
 
 
-if __name__ == "__main__":
-    main()
+# draw the graph
+plt.show()
