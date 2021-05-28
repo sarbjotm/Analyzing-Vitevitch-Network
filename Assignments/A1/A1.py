@@ -13,8 +13,7 @@ def main():
             node_size=18,
             font_size=8,
             verticalalignment='baseline',
-            edge_color='grey',
-            )
+            edge_color='grey')
     edges = number_of_edges(graph)
     nodes = number_of_nodes(graph)
     max_edges_possible = number_of_possible_edges(nodes)
