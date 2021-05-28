@@ -4,6 +4,14 @@ import matplotlib.pyplot as plt  # Since we are not using a notebook we will imp
 
 def main():
     graph = nx.read_adjlist('../Datasets/vitevitch.adjlist')
+    nx.draw(graph,
+            with_labels=True,
+            node_color='black',
+            node_size=16,
+            font_size=10,
+            verticalalignment='bottom',
+            edge_color='grey',
+            )
 
     edges = number_of_edges(graph)
     nodes = number_of_nodes(graph)
@@ -22,19 +30,7 @@ def main():
     print(f"The nodes with the maximum grades are: ")
     for nodes in max_degree:
         print(f"\t-{nodes} (degree of {graph.degree(nodes)})")
-
-    # higher degree more confusable it is. In a picture training, people respond slower to words with high degree
-    # when we ask people if a specific word is in their language, they go through the network, but there are many other
-    # competitiors to cat that we have to rule out
-    nx.draw(graph,
-            with_labels=True,
-            node_color='black',
-            node_size=16,
-            font_size=10,
-            verticalalignment='bottom',
-            edge_color='grey',
-            )
-
+    plt.savefig('graph.png')
     plt.show()
 
 
