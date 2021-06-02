@@ -1,7 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt  # Since we are not using a notebook we will import like this
 
-
 G = nx.Graph()
 
 # give each a node a 'name', which is a letter in this case.
@@ -19,6 +18,8 @@ print(D.has_edge(5,4))
 nx.draw(D, with_labels=True,
         node_color='yellow')
 
+nx.draw(G, with_labels=True,
+        node_color='yellow')
 
 # draw the graph
 plt.show()
