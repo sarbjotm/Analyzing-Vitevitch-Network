@@ -25,6 +25,7 @@ def main():
           f"\t - {removed_components[4]} \n")
     print(len(removed_components))
 
+
 def components(nodes_list):
     return_components = []
     for nodes in nodes_list:
@@ -32,6 +33,7 @@ def components(nodes_list):
         graph_r.remove_node(nodes)
         return_components.append(list(nx.connected_components(graph_r)))
     return return_components
+
 
 def reduce_least_density(nodes_list):
     difference = 0
@@ -57,16 +59,16 @@ def disconnected(graph):
         graph_r.remove_node(node)
         if not nx.is_connected(graph_r):
             return_nodes.append(node)
-            # nx.draw(graph_r,
-            #         with_labels=True,
-            #         node_color='black',
-            #         node_size=18,
-            #         font_size=8,
-            #         verticalalignment='baseline',
-            #         edge_color='grey')
-            # plt.title(f"Removed node {node}")
-            # plt.savefig(f'{node}.png')
-            # plt.show()
+            nx.draw(graph_r,
+                    with_labels=True,
+                    node_color='black',
+                    node_size=18,
+                    font_size=8,
+                    verticalalignment='baseline',
+                    edge_color='grey')
+            plt.title(f"Removed node {node}")
+            plt.savefig(f'{node}.png')
+            plt.show()
 
     return return_nodes
 
