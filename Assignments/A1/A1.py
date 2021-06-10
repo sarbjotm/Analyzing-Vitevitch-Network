@@ -35,6 +35,7 @@ def main():
     plt.show()
     histogram_degrees(graph)
 
+
 def histogram_degrees(G):
     all_degrees = nx.degree_histogram(G)
     axes = plt.gca()
@@ -46,20 +47,25 @@ def histogram_degrees(G):
     plt.savefig('histo.png')
     plt.show()
 
+
 def number_of_edges(G):
     return G.number_of_edges()
 
+
 def number_of_nodes(G):
     return G.number_of_nodes()
+
 
 def number_of_possible_edges(N):
     max_edges = (N * (N - 1)) / 2
     return max_edges
 
+
 def network_density(N, L):
     numerator = 2 * L
     denominator = N * (N - 1)
     return numerator / denominator
+
 
 def highest_degree(G):
     max_value = 0
@@ -74,6 +80,7 @@ def highest_degree(G):
 
     return nodes_with_max_value
 
+
 def lowest_degree(G):
     min_value = 1
     nodes_with_min_value = []
@@ -87,8 +94,10 @@ def lowest_degree(G):
 
     return nodes_with_min_value
 
+
 def average_degree(N, L):
     return (2 * L) / N
+
 
 if __name__ == '__main__':
     main()
