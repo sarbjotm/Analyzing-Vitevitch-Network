@@ -21,6 +21,15 @@ def main():
     min_degree = lowest_degree(graph)
     mean_degree = average_degree(nodes, edges)
     histogram_degrees(graph)
+    node_degree_mapping = create_dictionary(graph)
+    print(node_degree_mapping)
+
+
+def create_dictionary(G):
+    return_dict = {}
+    for nodes in G.nodes():
+        return_dict[nodes] = G.degree(nodes)
+    return return_dict
 
 
 if __name__ == '__main__':
