@@ -1,3 +1,3 @@
-# fass-210
+# Analyzing Vitevitch Network
 
-Tutorials and Assignments
+Tutorials and Assignments based on the Vitevitch Network
